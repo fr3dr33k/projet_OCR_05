@@ -1,0 +1,42 @@
+h1 {
+  font-family: "Architects Daughter", cursive;
+  margin: auto;
+}
+h1 a {
+  text-decoration: none;
+}
+@media screen and (min-width: 576px) {
+  h1 a {
+    font-size: 0.8em;
+  }
+}
+h1 a:hover {
+  text-decoration: none;
+  color: #2f9aff;
+}
+@media screen and (max-width: 900px) {
+  h1 img {
+    width: 20%;
+  }
+}
+
+ul li a {
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  color: gray;
+}
+
+@media screen and (max-width: 2000px) {
+  .bloc_info {
+    width: 45%;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 700px) {
+  .bloc_info {
+    width: 95%;
+    margin: auto;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
