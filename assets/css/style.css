@@ -1,3 +1,7 @@
+html, body {
+  background-color: rgba(26, 90, 228, 0.8);
+}
+
 h1 {
   font-family: "Architects Daughter", cursive;
   margin: auto;
