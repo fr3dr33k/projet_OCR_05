@@ -1,12 +1,16 @@
-html, body {
-  background-color: rgba(26, 90, 228, 0.8);
-}
-
 h1 {
-  font-family: "Architects Daughter", cursive;
+  font-family: "Cinzel Decorative", cursive;
   margin: auto;
+  border: 4px solid rgba(255, 255, 255, 0.623);
+  border-radius: 10px;
+  padding: 0.6em;
+  background: no-repeat center;
+  background-image: url("../media/cross_paramed.png");
+  background-size: 30%;
+  background-color: #6b726b;
 }
 h1 a {
+  color: white;
   text-decoration: none;
 }
 @media screen and (min-width: 576px) {
@@ -16,12 +20,17 @@ h1 a {
 }
 h1 a:hover {
   text-decoration: none;
-  color: #2f9aff;
+  color: white;
 }
 @media screen and (max-width: 900px) {
   h1 img {
     width: 20%;
   }
+}
+h1 .title-2 {
+  font-family: "Roboto";
+  color: white;
+  font-size: 0.5em;
 }
 
 ul li a {

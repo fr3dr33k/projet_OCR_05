@@ -1,24 +1,34 @@
-html,body{
-    background-color:  rgba(26, 90, 228,.8);
-}
-
 h1{
-    font-family: 'Architects Daughter', cursive;
+    font-size: 6em;
+    font-family: 'Cinzel Decorative', cursive;
     margin: auto;
+    border: 4px solid rgba(255, 255, 255, 0.623);
+    border-radius: 10px;
+    padding: .6em;
+    background: no-repeat center;
+    background-image: url("../media/cross_paramed.png");
+    background-size: 30%;
+    background-color: rgb(107, 114, 107);
     a{
-        @media screen and (min-width: 576px){
+        color: white;
+        @media screen and (max-width: 800px){
             font-size: .8em;
         }
         text-decoration: none;
         &:hover{
             text-decoration: none;
-            color: rgb(47, 154, 255);
+            color: white;
         }
     }
     img{
         @media screen and (max-width: 900px){
             width: 20%;
         }
+    }
+    .title-2{
+        font-family: "Roboto"; 
+        color: white;
+        font-size: .5em; 
     }
 }
 
