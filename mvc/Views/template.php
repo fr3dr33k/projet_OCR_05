@@ -9,10 +9,8 @@
             echo "ok";
         } else {    
             $errors = $resp->getErrorCodes();
-            //var_dump($errors);
+            var_dump($errors);
         }
-    }else{
-
     }
 ?>
 <!DOCTYPE html>
@@ -43,7 +41,7 @@
 
     </head>
 
-    <body class="container-fluid">
+    <body>
 
         <header class="container-fluid">
 
@@ -74,11 +72,6 @@
         </header>
 
         <section class="here">
-            
-            <?php 
-                if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
-                }
-            ?>
     
             <form id="form" action="?" method="POST" style="display:none">
                 <div class=" bloc_info shadow-none p-3 mb-5 bg-light rounded">
