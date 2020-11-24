@@ -18,3 +18,4 @@
 
 }
 
+$('.carousel').carousel()
