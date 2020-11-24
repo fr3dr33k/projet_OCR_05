@@ -1,16 +1,30 @@
+body{
+    background-image: url("../media/background-site.jpg");
+}
 h1{
-    font-size: 6em;
-    font-family: 'Cinzel Decorative', cursive;
-    margin: auto;
-    border: 4px solid rgba(255, 255, 255, 0.623);
+    font-family: 'Montserrat Subrayada', sans-serif;
+    border: 4px solid #c2e9fb;
+
     border-radius: 10px;
     padding: .6em;
-    background: no-repeat center;
-    background-image: url("../media/cross_paramed.png");
-    background-size: 30%;
-    background-color: rgb(107, 114, 107);
+    background-image: url("../media/cross_paramed.png"),url("../media/cross_paramed.png");
+    background-position: left, right;
+    
+    background-size: 7%;
+    background-repeat: no-repeat;
+    background-color: grey;
+    @media screen and (max-width: 1200px){
+        font-size: 1.8em;
+    }
+    @media screen and (max-width: 800px){
+        background-size: 15%;
+        font-size: 2em;
+    }
     a{
-        color: white;
+        
+        background: -webkit-linear-gradient(#2a6fb3,   #1b7ddb);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         @media screen and (max-width: 800px){
             font-size: .8em;
         }
@@ -38,6 +52,12 @@ ul li a{
     color: gray;
 }
 
+.swiper-container{
+    width: 70%;
+    max-height: 100%;
+    opacity: .8;
+}
+
 
 .bloc_info{
     @media screen and(max-width: 2000px) {
@@ -45,7 +65,12 @@ ul li a{
         margin: auto;
     }
     @media screen and(max-width: 700px) {
-        width: 95%;
+        max-width: 400px;
+        width: 85%;
         margin: auto;
     }
+}
+
+#map{
+    min-width: 100%;
 }

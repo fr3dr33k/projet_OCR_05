@@ -1,19 +1,36 @@
+body {
+  background-image: url("../media/background-site.jpg");
+}
+
 h1 {
-  font-family: "Cinzel Decorative", cursive;
-  margin: auto;
-  border: 4px solid rgba(255, 255, 255, 0.623);
+  font-family: "Montserrat Subrayada", sans-serif;
+  border: 4px solid #c2e9fb;
   border-radius: 10px;
   padding: 0.6em;
-  background: no-repeat center;
-  background-image: url("../media/cross_paramed.png");
-  background-size: 30%;
-  background-color: #6b726b;
+  background-image: url("../media/cross_paramed.png"), url("../media/cross_paramed.png");
+  background-position: left, right;
+  background-size: 7%;
+  background-repeat: no-repeat;
+  background-color: grey;
+}
+@media screen and (max-width: 1200px) {
+  h1 {
+    font-size: 1.8em;
+  }
+}
+@media screen and (max-width: 800px) {
+  h1 {
+    background-size: 15%;
+    font-size: 2em;
+  }
 }
 h1 a {
-  color: white;
+  background: -webkit-linear-gradient(#2a6fb3, #1b7ddb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-decoration: none;
 }
-@media screen and (min-width: 576px) {
+@media screen and (max-width: 800px) {
   h1 a {
     font-size: 0.8em;
   }
@@ -39,6 +56,12 @@ ul li a {
   color: gray;
 }
 
+.swiper-container {
+  width: 70%;
+  max-height: 100%;
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 2000px) {
   .bloc_info {
     width: 45%;
@@ -47,9 +70,14 @@ ul li a {
 }
 @media screen and (max-width: 700px) {
   .bloc_info {
-    width: 95%;
+    max-width: 400px;
+    width: 85%;
     margin: auto;
   }
+}
+
+#map {
+  min-width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
