@@ -1,7 +1,10 @@
 <?php 
+    
+    require "vendor/autoload.php";
+    require "assets/emailVerifier/emailVerif.php";
 
-    require "mvc/Controllers/ControllerUserActions.php";
-
+    use App\Controllers\ControllerUserActions;
+    
     $url = "";
 
     if(isset($_GET["q"])){
@@ -16,9 +19,9 @@
                 echo "no";
             break;
             default:
-            
+                ControllerUserActions::default();
         }
-
+        
     }else{
-        require "mvc/Views/template.php";
+        ControllerUserActions::default();
     }
