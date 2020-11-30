@@ -2,12 +2,12 @@ body{
     background-image: url("../media/background-site.jpg");
 }
 h1{
-    font-family: 'Montserrat Subrayada', sans-serif;
+    
     border: 4px solid #c2e9fb;
-
+    font-family: 'Righteous', cursive;
     border-radius: 10px;
     padding: .6em;
-    background-image: url("../media/cross_paramed.png"),url("../media/cross_paramed.png");
+    background-image: url("../media/cross_paramed.png");
     background-position: left, right;
     
     background-size: 7%;
@@ -21,10 +21,11 @@ h1{
         font-size: 2em;
     }
     a{
-        
-        background: -webkit-linear-gradient(#2a6fb3,   #1b7ddb);
+        color: white;
+        /*background: -webkit-linear-gradient(white,   #1b7ddb,white);
         -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        -webkit-text-fill-color: transparent;*/
+
         @media screen and (max-width: 800px){
             font-size: .8em;
         }
@@ -50,8 +51,20 @@ ul li a{
     font-family: 'Roboto', sans-serif;
     font-size: 1em;
     color: gray;
+    .home_icon{
+        vertical-align: text-top;
+    }
+   
 }
 
+.mail_icon{
+    vertical-align: sub;
+    margin-left: 50%;
+}
+.phone_icon{
+    vertical-align: sub;
+    margin-left: 20%;
+}
 .swiper-container{
     width: 70%;
     max-height: 100%;
@@ -59,16 +72,9 @@ ul li a{
 }
 
 
-.bloc_info{
-    @media screen and(max-width: 2000px) {
-        width: 45%;
-        margin: auto;
-    }
-    @media screen and(max-width: 700px) {
-        max-width: 400px;
-        width: 85%;
-        margin: auto;
-    }
+.bloc_send_mail{
+    max-width: 380px;
+    margin: auto;
 }
 
 #map{
