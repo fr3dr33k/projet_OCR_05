@@ -1,9 +1,10 @@
 body{
-    background-image: url("../media/background-site.jpg");
+    //background-image: url("../media/background-site.jpg");
+    background-color: rgba(139, 235, 219, 0.611) !important;
 }
+
 h1{
     
-    border: 4px solid #c2e9fb;
     font-family: 'Righteous', cursive;
     border-radius: 10px;
     padding: .6em;
@@ -72,11 +73,44 @@ ul li a{
 }
 
 
-.bloc_send_mail{
-    max-width: 380px;
+#demo-form{
+    max-width: 325px;
     margin: auto;
 }
 
 #map{
-    min-width: 100%;
+    width: 90%;
+    height: 55vh;
+    margin: 0 auto 5%;
+    @media screen and (max-width: 1200px){
+        margin: 0 auto 5%;
+        height: 40vh;
+    }
+    @media screen and (max-width: 800px){
+        height: 30vh;
+        margin: 0 auto 2%;
+
+    }
+
+}
+
+.rc-anchor-normal-footer{
+    z-index: 99;
+}
+
+
+.nav-link:hover{
+    color: #1b7cd9;
+}
+
+.carousel{
+    margin: 2% auto;
+    width: 60%;
+    @media screen and (max-width: 1200px){
+        margin: 5% auto;
+        width: 80%;
+    }
+    @media screen and (max-width: 800px){
+        width: 100%;
+    }
 }
