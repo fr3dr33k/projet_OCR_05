@@ -3,6 +3,7 @@
     namespace App\Controllers;
 
     use App\Models\ConnectDatabase;
+    use App\Controllers\ControllerCaptachaEmail;
 
     class ControllerUserActions {
 
@@ -11,8 +12,8 @@
             require "mvc/Views/template.php";
         }
 
-        public function send_user_mail(){
-            
+        public function send_user_mail($email,$subject,$message){ 
+            mail($email,$subject,$message);
         }
 
 
