@@ -1,7 +1,6 @@
 <?php 
     
     require "vendor/autoload.php";
-    require "assets/emailVerifier/emailVerif.php";
 
     use App\Controllers\ControllerUserActions;
     
@@ -12,12 +11,11 @@
         $q = $_GET["q"];
 
         switch($q){
+            
             case "ok":
                 ControllerUserActions::ok();
             break;
-            case "no":
-                echo "no";
-            break;
+            
             default:
                 ControllerUserActions::default();
         }
