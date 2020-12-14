@@ -1,22 +1,10 @@
 <?php
-    require_once 'assets/anti-spam/autoload.php';
-    if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
 
-        $recaptcha = new \ReCaptcha\ReCaptcha("6LflCuMZAAAAAE1IY0GrSbScxjKBR463wcPGCtBj");
-        //$resp = $recaptcha->setExpectedHostname('projet5.jacob-projets-dwj.fr')
-        $resp = $recaptcha->setExpectedHostname('localhost')
-        ->verify($_POST['g-recaptcha-response']);
-        if ($resp->isSuccess()) {
-            //SEND MAIL
-            
-            echo "ok";
-        } else {    
-            
-            $errors = $resp->getErrorCodes();
-            var_dump($errors);
-            echo "no";
-        }
-    }
+    use App\Controllers\ControllerCaptchaEmail;
+    use App\Controllers\ControllerUserActions;
+
+    ControllerCaptchaEmail::control_reCaptcha();
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -45,8 +33,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 
         <!-- ReCaptcha_GOOGLE -->
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
+        <script src="https://www.google.com/recaptcha/api.js?render=6Le6yv4ZAAAAADqeun6pQSPG76sR0JKCEJumZL99"></script>
+        
         <!-- FONTS -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&display=swap" rel="stylesheet">
@@ -62,6 +50,10 @@
 
         <!-- STYLES CSS -->
         <link rel="stylesheet" href="assets/css/style.css">
+        
+        <!-- ANIMATE JS -->
+        <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+        
 
     </head>
 
@@ -70,12 +62,12 @@
         <header class="container-fluid">
 
             <h1 class="text-right mb-4 mt-2">
-                <a class="p-2" href="#">
+                <a class="p-2 title" href="#">
                     JACOB ambulances
                 </a>    
             </h1>
 
-            <div class="shadow p-3 mb-5 bg-white rounded d-flex justify-content-center flex-wrap">
+            <div class="shadow p-3 bg-white rounded d-flex justify-content-center flex-wrap">
                 <ul class="nav text-center">
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Accueil
@@ -119,40 +111,61 @@
         </header>
 
         <section class="here">
-    
-            <form class="bloc_send_mail" action="" method="POST" style="display:none">
+
+            <?php include "carousel.php"; ?>
+
+            <form id="demo-form" class="bloc_send_mail" action="" method="POST" style="display:none">
+
                 <button type="button" class="close mt-2 mr-3" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+
                 <div class="shadow-none p-3 mb-5 bg-light rounded">
                     
-                    <h4 class="text-center mb-5 mt-4">Envoyez votre email</h4>
+                    <h4 class="text-center mb-5 mt-4">Envoyez votre message</h4>
                     
                     <div class="form-group">
                         <label for="exampleInputEmail1">Adresse email</label>
-                        <input name="email" type="email" class="form-control" id="input_email_contact_form" aria-describedby="emailHelp">
+                        <input name="email" type="email" class="email_input form-control" id="input_email_contact_form" aria-describedby="emailHelp">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Votre message</label>
-                        <textarea name="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea name="message" class="form-control" id="input_message_contact" rows="3"></textarea>
                     </div>
-
-                    <div class="g-recaptcha" data-sitekey="6LflCuMZAAAAAPSHpeC3GEFuLd0NHiXQkj8YXctc" data-theme="light"></div>
-                    <br/>
-                    <div class="text-center m-3">
-                        <input class="p-2 border-0 text-white bg-success" type="submit" value="Envoyer">
-                    </div>
+                    
+                    <input type="submit" class="bloc_button btn btn-primary text-center mt-4 " name="submit" value="Envoyer"><br><br>
+                    <input type="hidden" id="token" name="token">
 
                 </div>
-            </form>
+
+            </form> 
+            
+            <form id="demo-form" class="bloc_phone" action="" method="POST" style="display:none">
+
+                <button type="button" class="close mt-2 mr-3" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+                <div class="shadow-none p-3 mb-5 bg-light rounded">
+
+                    <h4 class="text-center mb-5 mt-4">Contactez-nous au : </h4>
+                    <p class="h5 bg-gradient-info text-center mx-auto fs-1 p-2 text-light fw-bolder">03.22.45.65.87</p>
+
+                </div>
+
+            </form> 
+            
         </section>
 
         <footer>
-            <div id='map' style='width: 80%; height: 300px; margin:auto'></div>
+            <div class="">
+
+            </div>
+            <div id='map'></div>
         </footer>
 
-        <script src="assets/js/carousel.js"></script>
+
         <script>
 
             mapboxgl.accessToken = 'pk.eyJ1IjoiZmZmZmZmZmZmZmZmZmZmZmZmZmYiLCJhIjoiY2toZDcxZnV1MDMyaTM0b2sybWxmM3ZmMSJ9.QcO5t9rZyZhRoFktIw2Agw';
@@ -162,16 +175,23 @@
                 style: 'mapbox://styles/mapbox/streets-v11',
                 zoom: 15
             }); 
-           
-        </script>
-        
-         <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-            async defer>
-        </script>
-        <script src="assets/js/emailVerifier.js"></script>
-        <script src="assets/js/navbar.js"></script>
 
-            
+        </script>
+        <script async src="assets/js/animate_title.js"></script>
+
+        <script src="assets/js/carousel.js"></script>
+       
+        <script src="assets/js/navbar.js"></script>
+        <script>
+             grecaptcha.ready(function() {
+                grecaptcha.execute('6Le6yv4ZAAAAADqeun6pQSPG76sR0JKCEJumZL99', {action: 'homepage'}).then(function(token) {
+                  document.getElementById("token").value = token;
+                });
+            });
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
     </body>
 </html>
 
